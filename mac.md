@@ -24,7 +24,7 @@
 
 *失敗含めて記載しているので先に手順をひと通り見てもらった方がいいかも*
 
-1. mkdir as/you/like/<work-dir> && cd <work-dir>
+1. mkdir as/you/like/[work-dir] && cd [work-dir]
 1. git clone https://github.com/esden/summon-arm-toolchain.git
 1. READMEにしたがってもろもろインストール
    * mpfr gmp libmpc texinfo libusb-compat libftdi wget
@@ -37,6 +37,7 @@
    * DARWIN_OPT_PATHを修正する（かsummon-arm-toolchainの起動オプションで指定する）
       * - DARWIN_OPT_PATH=/usr/local	# Path in which MacPorts or Fink is installed
       * + DARWIN_OPT_PATH=/opt/local	# Path in which MacPorts or Fink is installed
+   * /opt/localはMacPorts。HomeBrewは別のパスかも（未確認
    * OpenOCDはJTAG関連みたいなのでOFF ?? (結局ONでビルドした)
 1. 再度: ./summon-arm-toolchain CPUS=4
    * OpenOCDがなんとかいうのがコンパイルエラーに成る
