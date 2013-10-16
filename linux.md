@@ -12,7 +12,7 @@
 * 参考URL)
    * [STM32F4 DiscoveryをUbuntuから試食してみました](http://projectc3.seesaa.net/article/283806921.html)
 
-## libusbの
+## libusbのインストール
 
 1. apt-getなりからインストールしておきましょう
 
