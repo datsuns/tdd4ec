@@ -12,6 +12,10 @@
 * 参考URL)
    * [STM32F4 DiscoveryをUbuntuから試食してみました](http://projectc3.seesaa.net/article/283806921.html)
 
+## libusbの
+
+1. apt-getなりからインストールしておきましょう
+
 ## サンプルプログラムのダウンロード
 1. 参考URLからSTM32F4_Sample_forLinuxBuildEnv.tgzをダウンロード、展開、makeする
 1. main.elfができることを確認
