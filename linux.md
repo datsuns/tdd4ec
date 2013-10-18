@@ -1,5 +1,9 @@
 # 環境構築 linux編
 
+## 確認した環境
+
+Ubuntu 12.04 LTS
+
 ## ツールチェインのインストール
 
 1. Sourcery CodeBench Lite Editionを使う
@@ -15,6 +19,10 @@
 ## libusbのインストール
 
 1. apt-getなりからインストールしておきましょう
+1. udevの設定を実施
+   1. sudo cp openocd-0.7.0/contrib/openocd.udev /etc/udev/rules.d/50-openocd.rules
+   2. sudo udevadm control --reload-rules
+   3. sudo udevadm trigger
 
 ## サンプルプログラムのダウンロード
 1. 参考URLからSTM32F4_Sample_forLinuxBuildEnv.tgzをダウンロード、展開、makeする
