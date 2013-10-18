@@ -30,7 +30,8 @@
    * mpfr gmp libmpc texinfo libusb-compat libftdi wget
    * wgetのインストールに手間取ったけどportのselfupdateやったらwgetも更新されて普通に動くようになった
 1. cd summon-arm-toolchain
-   * インストールディレクトリは PREFIX で指定
+   * このツールはいシステムへのインストールまではやらないみたい（ビルド済バイナリを集めてくれるところまで）
+   * バイナリの出力先は PREFIX で指定
       * **PREFIX は絶対パスでないとダメぽい**
 1. ./summon-arm-toolchain PREFIX=/Users/datsuns/bin/sat CPUS=4
    * *gccのコンパイルでコケる*
