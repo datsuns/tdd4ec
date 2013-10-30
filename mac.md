@@ -173,6 +173,11 @@
    * サンプルだと「ch>」なプロンプトが出るのでそれでOK!
       * help でコマンド一覧とかが出てくる
 
+## Unityの動作
+
+* 見つけてきたサンプルを元に実施。詳細はコチラ
+   * https://github.com/datsuns/stm32f4_Discovery_Unity
+
 ## CppUTestのビルド
 
 1. configure実行
