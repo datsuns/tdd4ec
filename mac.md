@@ -130,3 +130,48 @@
 
       > Continuing.
 
+
+## USB-Serialでの動作デモ
+
+まずはprintf()ライクな関数が動くよね？を確かめようかと。今回のサンプルはChibiOSに依存しているため、そのAPI **chprintf()** というAPIでログ出力している模様。
+
+1. 事前に何かしらのシリアルターミナルをインストール
+   * macにはscreenが標準で入ってる？のでそれも使える
+   * ワタシは昔Arduino(ino)用に入れてたpicocomというのを利用
+1. ChibiOS本体をダウンロード
+   * https://github.com/ChibiOS/ChibiOS-RT
+   * とりあえずmasterでもサンプルは動いたけどどこかのtagにでもcheckoutしておいたほうがいいかも？
+      * と思ったらmasterしか無いのでそのままでいいでしょう
+1. サンプルのダウンロード
+   * https://github.com/resset/STM32F4-Discovery-example-code.git
+1. makefile中のChibiOSへのパスをダウンロードしたChibiOSへのパスで修正
+   * @STM32F4-Discovery-example-code/makefile
+      * CHIBIOS = ../ChibiOS-RT/
+1. make
+   * とおるはず！
+1. 実機の接続
+   1. USB mini / micro 双方をPCに
+      * このサンプルだとmicro側を出力に使ってるみたい
+1. 後はこれまでと同様にopenocdにgdbでremote接続してボードにプログラムをloadし、go
+1. PCのシェルからls /dev として自動認識されるはずのCDCデバイスを確認
+   * 試した環境[Max OS X 10..7.5]だと別途ドライバ等不要でした
+   * 試した時の状態だとこんな結果
+
+   > % ls /dev | grep usb
+
+   >  cu.usbmodem271
+
+   >  tty.usbmodem271
+1. シリアルターミナル起動！
+   * 見つかったttyデバイスファイルを指定してターミナルを起動
+      * picocom /dev/tty.usbmodem271
+   * サンプルだと「ch>」なプロンプトが出るのでそれでOK!
+      * help でコマンド一覧とかが出てくる
+
+## CppUTestのビルド
+
+1. configure実行
+> CFLAGS=-mcpu=cortex-m4 -nostartfiles -T/Users/datsuns/work/programming/cpp/tdd4ec/stm32fdiscovery/ChibiOS/ChibiOS_2.6.1/os/ports/GCC/ARMCMx/STM32F4xx/ld/STM32F407xG.ld -Wl,-Map=build/ch.map,--cref,--no-warn-mismatch,--gc-sections  -mno-thumb-interwork -mthumb ./configure --host=arm-none-eabi --disable-std-c
+
+   1. オプションはChibiOSのdemoをvervoseビルドして割り出した
+
