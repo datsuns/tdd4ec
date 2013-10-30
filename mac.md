@@ -137,6 +137,9 @@
 
 まずはprintf()ライクな関数が動くよね？を確かめようかと。今回のサンプルはChibiOSに依存しているため、そのAPI **chprintf()** というAPIでログ出力している模様。
 
+* 参考
+   * http://forum.chibios.org/phpbb/viewtopic.php?f=4&t=514&start=10
+
 1. 事前に何かしらのシリアルターミナルをインストール
    * macにはscreenが標準で入ってる？のでそれも使える
    * ワタシは昔Arduino(ino)用に入れてたpicocomというのを利用
